@@ -1,0 +1,6 @@
+# /init command bundle: registers a host /init slash command.
+# The prompt text ships as the plugin default (config.prompt); override it
+# from a higher-priority patch layer if a project needs a different template.
+- insert:
+    - id: init-command
+      name: '@local/init-command'

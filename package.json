@@ -1,0 +1,16 @@
+{
+  "name": "@local/init-command",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Host-side /init slash command: injects the workspace-init prompt (DSH-adapted) into the current session.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
