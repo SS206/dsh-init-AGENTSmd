@@ -1,16 +1,24 @@
 {
   "name": "@local/init-command",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "private": true,
-  "description": "Host-side /init slash command: injects the workspace-init prompt (DSH-adapted) into the current session.",
+  "description": "Dual-face /init slash command: the host half registers the command (with an input hint, so picking it claims `/init ` for extra requirements), and the client half decorates that catalog row with a localized label and icon; the prompt itself is injected at pre-step (context-shaped, no user bubble).",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
   },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-commands"
+      ]
     }
   }
 }
